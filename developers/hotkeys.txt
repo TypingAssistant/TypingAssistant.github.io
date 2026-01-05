@@ -1,0 +1,23 @@
+# Typing Assistant
+# by 𝖊𝖓ê𝖔ķ𝖊 ķ𝖊𝖝ê
+
+# ----Emoticons----
+happy=:)
+excited=:D
+angry=>:(
+devilish=>:)
+shrug=¯\_(ツ)_/¯
+tableflip=(╯°□°）╯︵ ┻━┻
+
+# ----Math----
+pi=π
+^2=²
+divide=÷
+multiply=•
+
+# ----Latin Characters----
+a=â
+e=ê
+i=î
+o=ô
+u=û

@@ -1,0 +1,15 @@
+{
+  "accept_key": "insert",
+  "max_buffer": 40,
+
+  "replacement": {
+    "pre_backspace_delay": 0.0,
+    "post_backspace_delay": 0.0,
+    "per_character_delay": 0.0
+  },
+  "startup": {
+    "print_banner": true,
+    "print_dictionary_count": true
+  }
+}
+
