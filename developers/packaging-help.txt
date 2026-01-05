@@ -1,0 +1,1 @@
+pyinstaller --onefile --add-data "hotkeys.txt;." --name "TypingAssistant_Portable" typing_assistant.py
