@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypingAssistant | Official Home</title>
+  <style>
+    :root {
+      --primary: #2d3436;
+      --secondary: #636e72;
+      --accent: #0984e3;
+      --bg: #f5f6fa;
+      --white: #ffffff;
+      --dev-accent: #6c5ce7;
+    }
+
+    body { 
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6; color: var(--primary); background-color: var(--bg);
+      margin: 0; padding: 0;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+
+    header { text-align: center; padding: 60px 0; background: var(--white); border-bottom: 1px solid #ddd; margin-bottom: 40px; }
+    h1 { font-size: 2.8rem; margin: 0; letter-spacing: -1px; }
+    .tagline { color: var(--secondary); font-size: 1.2rem; }
+
+    /* Layout Grids */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+
+    .card { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s; border-top: 5px solid var(--accent); }
+    .card:hover { transform: translateY(-5px); }
+    .card.dev-card { border-top-color: var(--dev-accent); }
+
+    h2 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
+    
+    .btn { display: inline-block; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; text-align: center; margin-top: 15px; cursor: pointer; transition: opacity 0.2s; border: none; }
+    .btn-main { background: var(--accent); color: white; width: 100%; box-sizing: border-box; }
+    .btn-dev { background: var(--dev-accent); color: white; width: 100%; box-sizing: border-box; }
+    .btn-outline { border: 2px solid var(--accent); color: var(--accent); background: transparent; }
+
+    /* Documentation Section */
+    .docs { background: var(--white); padding: 40px; border-radius: 12px; margin-top: 40px; }
+    .docs h3 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 30px; }
+    code { background: #f1f2f6; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', monospace; color: #d63031; }
+    
+    .badge { background: #dfe6e9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>TypingAssistant <span class="badge">v0.1.1</span></h1>
+    <p class="tagline">The system-wide shortcut engine for custom characters and accents.</p>
+  </div>
+</header>
+
+<div class="container">
+  
+  <div class="grid">
+    <div class="card">
+      <h2>🚀 For Users</h2>
+      <p>Download the ready-to-use application. Includes automatic background updates and a simple installation process.</p>
+      
+      <a href="users/TypingAssistant.exe" class="btn btn-main">Download Windows .exe</a>
+      <a href="users/TypingAssistant.zip" class="btn btn-outline" style="display:block; margin-top:10px;">Download Portable .zip</a>
+      <p style="font-size: 0.8rem; color: #636e72; margin-top: 15px;">
+        ZIP includes: <code>Main EXE</code>, <code>Updater</code>, <code>Config</code>, and <code>Dictionary</code>.
+      </p>
+    </div>
+
+    <div class="card dev-card">
+      <h2>🛠 For Developers</h2>
+      <p>Access the source code, custom dictionary templates, and packaging instructions for your own builds.</p>
+      
+      <a href="https://github.com/TypingAssistant/TypingAssistant.github.io/tree/main/developers" class="btn btn-dev" target="_blank">View Source on GitHub</a>
+      
+      <div style="margin-top: 20px;">
+        <a href="developers/typing_assistant_0.1.1.py" style="color: var(--dev-accent); text-decoration: none; font-size: 0.9rem;">⬇️ Get typing_assistant_0.1.1.py</a><br>
+        <a href="developers/hotkeys.txt" style="color: var(--dev-accent); text-decoration: none; font-size: 0.9rem;">⬇️ Get hotkeys.txt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="docs">
+    <h2>Instructions & Documentation</h2>
+
+    <h3>How to Use</h3>
+    <ul>
+      <li><strong>Run the App:</strong> Launch <code>TypingAssistant.exe</code>. A console window will appear (you can minimize this).</li>
+      <li><strong>Triggering:</strong> Type any word unaccented (e.g., <code>coffee</code>) and press the <code>Insert</code> key.</li>
+      <li><strong>Dynamic Updates:</strong> The app checks for new versions every 5 minutes from our <code>version.json</code> server.</li>
+      <li><strong>Instant Reload:</strong> Made changes to your dictionary? Press <code>Ctrl + Alt + R</code> to reload without restarting.</li>
+    </ul>
+
+    <h3>Editing Your Dictionary</h3>
+    <p>Open <code>dictionary.txt</code> (or <code>hotkeys.txt</code>) and add your own shortcuts using the format: <code>trigger=replacement</code>.</p>
+    <pre style="background: #f8f9fa; padding: 15px; border-left: 4px solid var(--accent);">
+# Example mappings
+shrug=¯\_(ツ)_/¯
+omw=On my way!
+e'=é</pre>
+
+    <h3>Developer Packaging</h3>
+    <p>To compile your own standalone executable, use the command found in <code>packaging-help.txt</code>:</p>
+    <code>pyinstaller --onefile --name "TypingAssistant" typing_assistant_0.1.1.py</code>
+  </div>
+
+</div>
+
+</body>
+</html>
